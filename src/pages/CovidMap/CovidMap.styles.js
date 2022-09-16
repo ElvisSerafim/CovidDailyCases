@@ -23,7 +23,6 @@ export const SubTitle = styled.h3`
 `;
 
 export const ContainerText = styled.div`
-    background-color: black;
     padding: 20px;
     border-radius: 10px;
     text-align: center;

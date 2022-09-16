@@ -1,6 +1,11 @@
 import React from "react";
 import Map from "../../components/Map";
-import { Container, ContainerText, SubTitle, Title } from "./CovidMap.styles";
+import { 
+    Container, 
+    ContainerText,
+    SubTitle, 
+    Title 
+} from "./CovidMap.styles";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 

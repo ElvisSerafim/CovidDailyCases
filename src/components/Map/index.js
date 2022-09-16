@@ -3,17 +3,17 @@ import {
     ComposableMap,
     Geographies,
     Geography,
-    Marker,
-    Annotation,
     ZoomableGroup
 } from "react-simple-maps";
-
+import { 
+    Container, 
+    TooltipContainer,
+     DataText 
+} from "./Map.styles";
 import Tooltip from '@mui/material/Tooltip';
-import Box from '@mui/material/Box';
-import Popper from '@mui/material/Popper';
 import { api } from "../../services/api";
 import geos from "../../utils/geos.json";
-import { Container } from "./Map.styles";
+
 
 export default function Map() {
 
@@ -28,7 +28,7 @@ export default function Map() {
             setDataCovid(responseData);
             let arrayAux = [];
             responseData.forEach((item) => {
-                if (item.variant != 'non_who' && (arrayAux.includes(item.variant) === false))
+                if (item.variant !== 'non_who' && (arrayAux.includes(item.variant) === false))
                     arrayAux.push(item.variant);
             });
             setVariants(arrayAux);
@@ -36,17 +36,15 @@ export default function Map() {
     }, []);
 
     const getData = (country) => {
-        console.log(country);
         let filteredResult = dataCovid.filter((item) => item.location === country && item.date === '2021-07-12');
-        console.log(filteredResult.length);
         let arrayDataFiltered = [];
         variants.forEach((item) => {
             let sum = 0;
             filteredResult.forEach((ite) => {
-                if (ite.variant == item)
+                if (ite.variant === item)
                     sum = sum + ite.num_sequences;
             });
-            if (sum != 0) {
+            if (sum !== 0) {
                 let dataCountryCovid = {
                     total: sum,
                     variant: item
@@ -56,31 +54,34 @@ export default function Map() {
 
         });
         setDataToShow(arrayDataFiltered);
-        console.log(arrayDataFiltered);
-
-    }
-
-
-    const PopperList = () => {
-        return (
-
-            <Popper>
-                <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
-                    {country}
-                </Box>
-            </Popper>
-        )
     }
 
     return (
         <Container>
-            <Tooltip followCursor title={country} placement="top-start">
+            <Tooltip
+                followCursor
+                title={country.length === 0 ?
+                    "" : 
+                    <div>
+                        <DataText> {country} </DataText>
+                        {dataToShow.map((item) => {
+                            return (
+                                <TooltipContainer>
+                                    <DataText> {item.variant.concat(": ", item.total)}</DataText>
+                                </TooltipContainer>
+                            )
+                        })}
+                    </div>
+                }
+                placement="right-start"
+            >
                 <ComposableMap data-tip="" >
                     <ZoomableGroup zoom={1}>
                         <Geographies geography={geos}>
                             {({ geographies }) =>
                                 geographies.map((geo) => (
-                                    <Geography fill="#FFF"
+                                    <Geography 
+                                        fill="#FFF"
                                         key={geo.rsmKey}
                                         geography={geo}
                                         style={{
@@ -97,6 +98,11 @@ export default function Map() {
                                             const { name } = geo.properties;
                                             setCountry(`${name}`);
                                             getData(name);
+                                        }}
+
+                                        onMouseLeave={() => {
+                                            setCountry("");
+                                            setDataToShow([]);
                                         }}
                                     />
                                 ))
