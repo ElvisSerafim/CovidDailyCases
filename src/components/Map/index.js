@@ -15,7 +15,7 @@ import { api } from "../../services/api";
 import geos from "../../utils/geos.json";
 
 
-export default function Map() {
+export default function Map({date}) {
 
     const [dataCovid, setDataCovid] = useState([]);
     const [variants, setVariants] = useState([]);
@@ -36,7 +36,8 @@ export default function Map() {
     }, []);
 
     const getData = (country) => {
-        let filteredResult = dataCovid.filter((item) => item.location === country && item.date === '2021-07-12');
+        console.log(date.toLocaleDateString('en-CA'));
+        let filteredResult = dataCovid.filter((item) => item.location === country && item.date === date.toLocaleDateString('en-CA'));
         let arrayDataFiltered = [];
         variants.forEach((item) => {
             let sum = 0;

@@ -28,3 +28,11 @@ export const ContainerText = styled.div`
     text-align: center;
     width: 70%;
 `;
+
+export const ContainerSlider = styled.div`
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
