@@ -101,7 +101,7 @@ export default function Map({date, optionSelected}) {
                                                 outline: "none"
                                             }
                                         }}
-                                        onMouseEnter={() => {
+                                        onMouseOver={() => {
                                             const { name } = geo.properties;
                                             setCountry(`${name}`);
                                             getData(name);
