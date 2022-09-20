@@ -8,7 +8,7 @@ O projeto teve como objetivo desenvolver uma aplicação onde fosse possível ex
 
 ## Tecnologias Usadas
 
-##Linguagem: 
+#### Linguagem: 
 * Javascript
 
 In the project directory, you can run:
