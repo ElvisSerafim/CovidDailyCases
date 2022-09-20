@@ -2,7 +2,14 @@
 
 This is a challenge by Coodesh
 
-## Available Scripts
+### Descrição do Projeto
+
+O projeto teve como objetivo desenvolver uma aplicação onde fosse possível exibir o número de casos por país, dia e variante em um determinado período. 
+
+## Tecnologias Usadas
+
+###Linguagem: 
+* Javascript
 
 In the project directory, you can run:
 
