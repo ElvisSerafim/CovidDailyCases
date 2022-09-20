@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Frontend Challenge - Covid Daily Cases
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a challenge by Coodesh
 
 ## Available Scripts
 
