@@ -2,7 +2,7 @@
 
 This is a challenge by Coodesh
 
-![image](https://ibb.co/rbF3Q0J.png)
+![image](https://ibb.co/rbF3Q0J)
 
 
 
