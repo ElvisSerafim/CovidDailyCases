@@ -15,7 +15,7 @@ import { api } from "../../services/api";
 import geos from "../../utils/geos.json";
 
 
-export default function Map({date}) {
+export default function Map({date, optionSelected}) {
 
     const [dataCovid, setDataCovid] = useState([]);
     const [variants, setVariants] = useState([]);
@@ -36,14 +36,19 @@ export default function Map({date}) {
     }, []);
 
     const getData = (country) => {
-        console.log(date.toLocaleDateString('en-CA'));
-        let filteredResult = dataCovid.filter((item) => item.location === country && item.date === date.toLocaleDateString('en-CA'));
+        console.log();
+        let filteredResult = [];
+        if(optionSelected === 2)
+           filteredResult = dataCovid.filter((item) => item.location === country && new Date(item.date).getTime() <= date.getTime());
+        else
+           filteredResult = dataCovid.filter((item) => item.location === country && item.date === date.toLocaleDateString('en-CA'));
+
         let arrayDataFiltered = [];
         variants.forEach((item) => {
             let sum = 0;
-            filteredResult.forEach((ite) => {
-                if (ite.variant === item)
-                    sum = sum + ite.num_sequences;
+            filteredResult.forEach((itemFiltered) => {
+                if (itemFiltered.variant === item)
+                    sum = sum + itemFiltered.num_sequences;
             });
             if (sum !== 0) {
                 let dataCountryCovid = {
@@ -80,10 +85,11 @@ export default function Map({date}) {
                     <ZoomableGroup zoom={1}>
                         <Geographies geography={geos}>
                             {({ geographies }) =>
-                                geographies.map((geo) => (
-                                    <Geography 
+                                geographies.map((geo, index) => (
+                                    <Geography
+                                        
                                         fill="#FFF"
-                                        key={geo.rsmKey}
+                                        key={index}
                                         geography={geo}
                                         style={{
                                             default: {

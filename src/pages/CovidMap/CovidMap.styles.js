@@ -36,3 +36,12 @@ export const ContainerSlider = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+
+export const ContainerOptions = styled.div`
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+`;
