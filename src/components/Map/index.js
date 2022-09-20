@@ -101,12 +101,20 @@ export default function Map({date, optionSelected}) {
                                                 outline: "none"
                                             }
                                         }}
-                                        onMouseOver={() => {
+                                        onMouseEnter={() => {
                                             const { name } = geo.properties;
                                             setCountry(`${name}`);
                                             getData(name);
                                         }}
-
+                                        onTouchStart={() => {
+                                            const { name } = geo.properties;
+                                            setCountry(`${name}`);
+                                            getData(name);
+                                        }}
+                                        onTouchEnd={() => {
+                                            setCountry("");
+                                            setDataToShow([]);
+                                        }}
                                         onMouseLeave={() => {
                                             setCountry("");
                                             setDataToShow([]);
