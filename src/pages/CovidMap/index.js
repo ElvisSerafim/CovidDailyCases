@@ -10,7 +10,7 @@ import {
 } from "./CovidMap.styles";
 import DateSlider from "../../components/Slider";
 import { useState } from "react";
-import BasicSelect from "../../components/Select";
+import SelectOptions from "../../components/Select";
 
 
 export default function CovidMap() {
@@ -36,7 +36,7 @@ export default function CovidMap() {
                     <DateSlider value={currentDate} onChange={handleChange} max={new Date('2022-1-10')} min={new Date('2020-4-4')} />
                     {currentDate ? currentDate.toLocaleDateString('en-CA') : "Selecione uma data"}
                 </ContainerSlider >
-                <BasicSelect handleChange={onChange} value={valueSelected} />
+                <SelectOptions handleChange={onChange} />
             </ContainerOptions>
             <Map optionSelected={valueSelected} date={currentDate} />
         </Container>

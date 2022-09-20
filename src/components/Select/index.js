@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import { FormControl, Select, MenuItem } from '@mui/material';
 import { Container, InputLabel } from './Select.styles';
 
-export default function BasicSelect({ handleChange, value }) {
+export default function SelectOptions({ handleChange }) {
 
     const [valueSelected, setValueSelected] = useState(1);
+   
     const onChange = (event) => {
         setValueSelected(event.target.value);
         handleChange(event.target.value);
