@@ -36,7 +36,6 @@ export default function Map({date, optionSelected}) {
     }, []);
 
     const getData = (country) => {
-        console.log();
         let filteredResult = [];
         if(optionSelected === 2)
            filteredResult = dataCovid.filter((item) => item.location === country && new Date(item.date).getTime() <= date.getTime());
@@ -105,15 +104,6 @@ export default function Map({date, optionSelected}) {
                                             const { name } = geo.properties;
                                             setCountry(`${name}`);
                                             getData(name);
-                                        }}
-                                        onTouchStart={() => {
-                                            const { name } = geo.properties;
-                                            setCountry(`${name}`);
-                                            getData(name);
-                                        }}
-                                        onTouchEnd={() => {
-                                            setCountry("");
-                                            setDataToShow([]);
                                         }}
                                         onMouseLeave={() => {
                                             setCountry("");
