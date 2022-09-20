@@ -11,12 +11,15 @@ O projeto teve como objetivo desenvolver uma aplicação onde fosse possível ex
 #### Linguagem: 
 * Javascript
 
-In the project directory, you can run:
+### Frameworks e bibliotecas: 
+* React.js
+* Material UI 
+* rc Slider
+* Json Server
 
-### `npm start`
+No diretório do projeto, digite o comando  `npm start` ( o comando irá rodar o mock desenvolvido com o Json Server e a aplicação ao mesmo tempo);
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Url para acesso ao projeto: http://localhost:3000
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
