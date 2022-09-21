@@ -33,4 +33,4 @@ Url para acesso ao projeto: https://covid-daily-cases-seven.vercel.app/
 
 ## Apresentação do Projeto
 
-Link do vídeo: https://www.loom.com/embed/2dba59e929ce4a9da482af26accf5767 
+Link do vídeo: https://www.loom.com/embed/f266a0ed473f40c9abd353f622869c8c 
